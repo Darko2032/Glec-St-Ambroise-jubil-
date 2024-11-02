@@ -1,0 +1,509 @@
+/* Styles généraux */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff;
+    margin: 10px;
+    padding-top: 10px;
+    animation: fadeIn 1s ease-in; /* Animation pour l'apparition */
+}
+
+h1 {
+    text-align: center;
+    color: #003366;
+    font-size: 3rem;
+    margin: 20px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Styles pour toutes les sections avec h2 */
+#activites h2, #bureau h2, #contact h2, #a-propos h2, #horaires h2, header div h1, h2 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: blue;
+}
+
+/* Styles de l'en-tête */
+header {
+    background-color: rgba(255, 223, 128, 0.9);
+    padding: 0;
+    border-radius: 12px;
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: 2vw;
+    position: relative;
+}
+
+header h1 {
+    font-size: 3rem;
+}
+
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0.15px;
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+nav ul li {
+    margin: 0 15px;
+    font-size: 1.5rem;
+}
+
+/* Styles des sections principales */
+#accueil, #a-propos, #horaires, #activites, #bureau, #contact, footer {
+    background-color: rgba(255, 223, 123, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* Styles pour la grille de l'emploi du temps */
+.schedule-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.schedule-box {
+    background-color: rgba(0, 0, 255, 0.5);
+    padding: 15px;
+    margin: 10px;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.schedule-box:hover {
+    transform: scale(1.05);
+    background-color: rgba(0, 0, 200, 0.7);
+}
+
+/* Styles pour la modale */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: lightsteelblue;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: floralwhite;
+    padding: 30px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 900px;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: 2vw;
+    position: relative;
+}
+
+.modal-content ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 1.5rem;
+}
+.modal-content h2{
+  color: white;
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 3vw;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}
+
+/* Médias Queries pour les petits écrans */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+    nav ul li {
+        font-size: 1.2rem;
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    nav ul li {
+        font-size: 1rem;
+        margin: 0 5px;
+    }
+}
+footer {
+    background-color: rgba(255, 223, 123, 0.9);
+    padding: 10px 0;
+    border-radius: 8px;
+    margin: 0;
+    font-size: 2rem;
+    text-align: center;
+    position: flex; /* Fixer le pied de page */
+    bottom: 0; /* Positionner au bas de la page */
+    left: 0;
+    width: 100%;
+}
+/* Styles pour le formulaire */
+form {
+    width: 100%; /* Occupe toute la largeur de la section */
+    max-width: 600px; /* Largeur maximale pour éviter qu’il devienne trop large */
+    margin: 0 auto; /* Centrer le formulaire */
+    padding: 20px; /* Espacement intérieur */
+    background-color: #f9f9f9; /* Couleur de fond du formulaire */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre pour effet de profondeur */
+}
+
+/* Styles pour les champs du formulaire */
+form input[type="text"],
+form input[type="email"],
+form textarea,
+form button {
+    width: 100%; /* Champ en pleine largeur */
+    padding: 10px; /* Espacement intérieur */
+    margin-bottom: 15px; /* Espacement entre les champs */
+    border-radius: 4px; /* Coins arrondis */
+    border: 1px solid #ccc; /* Bordure grise */
+    font-size: 1rem; /* Taille de police */
+}
+
+/* Styles pour le bouton */
+form button {
+    background-color: #003366; /* Couleur du bouton */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #0055a5; /* Couleur au survol */
+}
+
+/* Nouvelle palette de couleurs */
+body {
+    background-color: #f9f9f9; /* Blanc cassé */
+    color: #333333;
+}
+
+h1 {
+    color: #003366; /* Bleu nuit pour les titres */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.header, .logo-container h1 {
+    color: #003366;
+}
+
+a {
+    color: #DAA520; /* Doré pour les liens et accents */
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: #FFD700; /* Jaune doré plus clair au survol */
+}
+
+/* Animation pour les apparitions de sections */
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Application de l'animation pour les sections et les titres */
+section, h1, h2, .logo {
+    animation: fadeInSlide 1s ease-in-out;
+}
+
+.logo-container img {
+    animation: zoomIn 1s ease forwards;
+}
+
+/* Effet zoom pour le logo */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0.7;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Animation pour les modales */
+.modal {
+    animation: slideIn 0.5s ease-out;
+}
+@keyframes slideIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+/* Styles généraux pour les écrans moyens */
+@media (max-width: 992px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+    nav ul li {
+        font-size: 1.2rem;
+    }
+    #accueil, #a-propos, #horaires, #activites, #bureau, #contact, footer {
+        font-size: 1.8rem;
+    }
+    .modal-content {
+        font-size: 1.8vw;
+    }
+}
+
+/* Styles pour les petits écrans */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    nav ul li {
+        font-size: 1rem;
+    }
+    #accueil, #a-propos, #horaires, #activites, #bureau, #contact {
+        font-size: 1.6rem;
+    }
+    .schedule-box {
+        font-size: 1.2rem;
+    }
+    .modal-content {
+        font-size: 2.5vw;
+        width: 90%;
+    }
+}
+
+/* Très petits écrans et mobiles */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    nav ul li {
+        font-size: 0.9rem;
+        margin: 0 5px;
+    }
+    #accueil, #a-propos, #horaires, #activites, #bureau, #contact {
+        font-size: 1.4rem;
+    }
+    .schedule-box {
+        font-size: 1rem;
+        padding: 10px;
+    }
+    .modal-content {
+        font-size: 3vw;
+        width: 95%;
+        padding: 15px;
+    }
+    .close {
+        font-size: 5vw;
+    }
+}
+
+/* Très grands écrans */
+@media (min-width: 1200px) {
+    #accueil, #a-propos, #horaires, #activites, #bureau, #contact {
+        font-size: 2.5rem;
+    }
+    .schedule-box {
+        font-size: 2rem;
+        padding: 20px;
+    }
+    .modal-content {
+        font-size: 1.5vw;
+        max-width: 1000px;
+    }
+}
+.schedule-box {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.schedule-box:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+.typewriter h1 {
+    overflow: hidden;
+    border-right: .15em solid #333;
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #333 }
+}
+img {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+body {
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    animation: parallaxScroll 10s infinite linear;
+}
+
+@keyframes parallaxScroll {
+    from {
+        background-position-y: 0;
+    }
+    to {
+        background-position-y: 100%;
+    }
+}
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}/* Boutons et liens */
+a, form button {
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease, box-shadow 0.3s ease;
+}
+
+a:hover, form button:hover {
+    color: #FFD700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+}
+
+form button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 215, 0, 0.2);
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+
+form button:hover::after {
+    transform: scale(1);
+}
+/* Animation lente pour créer un effet de signe de croix */
+.logo-container img {
+    position: relative;
+    animation: crossMove 8s ease-in-out infinite;
+}
+
+@keyframes crossMove {
+    0% {
+        transform: translate(0, 0); /* Centre */
+    }
+    20% {
+        transform: translateY(-50px); /* En haut */
+    }
+    30% {
+        transform: translate(0, 0); /* Retour au centre */
+    }
+    50% {
+        transform: translateY(50px); /* En bas */
+    }
+    60% {
+        transform: translate(0, 0); /* Retour au centre */
+    }
+    75% {
+        transform: translateX(-50px); /* À gauche */
+    }
+    85% {
+        transform: translate(0, 0); /* Retour au centre */
+    }
+    95% {
+        transform: translateX(50px); /* À droite */
+    }
+    100% {
+        transform: translate(0, 0); /* Retour au centre */
+    }
+}
+
+@keyframes rotateLogo {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes moveLeftRight {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(50px);
+    }
+}
+/* Couleur bleu ciel pour les sections et le pied de page */
+#accueil, #a-propos, #horaires, #activites, #bureau, #contact, footer {
+    background-color: bleu; /* Bleu ciel */
+    color: #333;
+}
+
+/* Couleur jaune très pâle pour l'en-tête */
+header {
+    background-color: #87CEEB; /* Jaune or très pâle */
+}
